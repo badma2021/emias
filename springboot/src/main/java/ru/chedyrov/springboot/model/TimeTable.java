@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ru.chedyrov.springboot.model.enums.Reserved;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -23,8 +25,10 @@ public class TimeTable {
     private LocalDate date;
     @Column
     private LocalTime timeInterval;
+
+    @Enumerated(EnumType.ORDINAL)
     @Column
-    private int reserved;
+    private Reserved reserved;
     @ManyToMany(fetch=FetchType.LAZY)
     @JoinColumn
     private List<Doctor> doctors;

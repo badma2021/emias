@@ -8,6 +8,7 @@ import ru.chedyrov.springboot.dao.TimeTableRepository;
 import ru.chedyrov.springboot.model.Doctor;
 import ru.chedyrov.springboot.model.Patient;
 import ru.chedyrov.springboot.model.TimeTable;
+import ru.chedyrov.springboot.model.enums.Reserved;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
@@ -32,20 +33,29 @@ public class InitData {
         Doctor doctor1 = Doctor.builder()
                 .firstName("Filipp")
                 .lastName("Preoprazhensky")
+                .speciality("surgeon")
                 .build();
 
         Doctor doctor2 = Doctor.builder()
                 .firstName("Nikolay")
                 .lastName("Pirogov")
+                .speciality("gastroenterologist")
                 .build();
 
         Doctor doctor3 = Doctor.builder()
                 .firstName("Doctor")
                 .lastName("Aibolit")
+                .speciality("therapist")
+                .build();
+        Doctor doctor4 = Doctor.builder()
+                .firstName("Peter")
+                .lastName("The Great")
+                .speciality("dentist")
                 .build();
         doctorRepository.save(doctor1);
         doctorRepository.save(doctor2);
         doctorRepository.save(doctor3);
+        doctorRepository.save(doctor4);
 
         Patient patient1= Patient.builder()
                 .firstName("Poligraph")
@@ -69,28 +79,28 @@ public class InitData {
         TimeTable timeTable1=TimeTable.builder()
                 .date(LocalDate.now())
                 .timeInterval(LocalTime.of(9,0))
-                .reserved(1)
+                .reserved(Reserved.RESERVED)
                 .doctors(null)
                 .patient(patient2)
                 .build();
         TimeTable timeTable2=TimeTable.builder()
                 .date(LocalDate.now())
                 .timeInterval(LocalTime.of(9,15))
-                .reserved(1)
+                .reserved(Reserved.RESERVED)
                 .doctors(null)
                 .patient(patient3)
                 .build();
         TimeTable timeTable3=TimeTable.builder()
                 .date(LocalDate.now())
                 .timeInterval(LocalTime.of(9,30))
-                .reserved(1)
+                .reserved(Reserved.RESERVED)
                 .doctors(null)
                 .patient(patient1)
                 .build();
         TimeTable timeTable4=TimeTable.builder()
                 .date(LocalDate.now())
                 .timeInterval(LocalTime.of(9,45))
-                .reserved(0)
+                .reserved(Reserved.FREE)
                 .doctors(null)
                 .patient(null)
                 .build();

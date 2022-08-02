@@ -21,6 +21,8 @@ public class Doctor {
     private String firstName;
     @Column
     private String lastName;
+    @Column
+    private String speciality;
     @ManyToMany(mappedBy="doctors", fetch=FetchType.LAZY)
     private List<TimeTable> timeTables;
 }

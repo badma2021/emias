@@ -1,5 +1,6 @@
 package ru.chedyrov.springboot.service.abstracts;
 import ru.chedyrov.springboot.model.TimeTable;
+import ru.chedyrov.springboot.model.enums.Reserved;
 
 import java.util.List;
 
@@ -13,4 +14,5 @@ public interface TimeTableService {
     void updateTimeTable(TimeTable timeTable);
 
     void deleteTimeTable(Long id);
+    List<TimeTable> getByReserved(Reserved reserved);
 }

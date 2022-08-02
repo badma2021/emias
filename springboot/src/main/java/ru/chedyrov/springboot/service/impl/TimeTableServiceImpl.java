@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.chedyrov.springboot.dao.TimeTableRepository;
 import ru.chedyrov.springboot.model.TimeTable;
+import ru.chedyrov.springboot.model.enums.Reserved;
 import ru.chedyrov.springboot.service.abstracts.TimeTableService;
 
 import java.util.List;
@@ -18,6 +19,12 @@ public class TimeTableServiceImpl implements TimeTableService {
     @Override
     public List<TimeTable> getAllTimeTables() {
         List<TimeTable> timeTables = timeTableRepository.findAll();
+
+        return timeTables;
+    }
+    @Override
+    public List<TimeTable> getByReserved(Reserved reserved) {
+        List<TimeTable> timeTables = timeTableRepository.getByReserved(reserved);
 
         return timeTables;
     }

@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+import java.sql.Clob;
 import java.util.List;
 
 @Data
@@ -18,7 +19,7 @@ public class Patient {    @Id
 private Long id;
     @Column
     private String firstName;
-    @Column
-    private String lastName;
+    @Lob
+    private Clob lastName;
 
 }
